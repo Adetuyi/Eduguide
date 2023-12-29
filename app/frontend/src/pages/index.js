@@ -1,0 +1,12 @@
+export * from './Dashboard/exports';
+export * from './Settings/exports';
+export * from './CourseManagement/pages';
+export { default as Dashboard } from './Dashboard';
+export { default as Events } from './Events';
+export { default as Login } from './Login';
+export { default as Logout } from './Logout';
+export { default as Playground } from './Playground';
+export { default as PageNotFound } from './404';
+export { default as ResetPassword } from './ResetPassword';
+export { default as Settings } from './Settings';
+export { default as StudentManagement } from './StudentManagement';
