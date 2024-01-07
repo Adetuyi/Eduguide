@@ -1,5 +1,5 @@
 import { Approutes } from './routes';
-import { Dashboard, DashboardActive, Setting, SettingActive, Students, Trainers, Events } from '../assets/svgs';
+import { Dashboard, DashboardActive, Setting, SettingActive, Students, Events, EventsActive } from '../assets/svgs';
 
 export const navList = [
 	{
@@ -12,54 +12,44 @@ export const navList = [
 		},
 	},
 	{
-		name: 'Course Management',
+		name: 'Courses',
+		link: Approutes.course.overview,
 		svg: {
 			default: <Events />,
+			active: <EventsActive />,
+		},
+	},
+	{
+		name: 'Student Management',
+		svg: {
+			default: <Students />,
 		},
 		menu: [
-			{
-				name: 'Overview',
-				link: Approutes.course.overview,
-			},
+			{ name: 'Overview', link: Approutes.student.overview },
 			{
 				name: 'Attendance',
-				link: Approutes.course.attendance,
+				link: Approutes.student.attendance,
 			},
 			{
 				name: 'Assessments',
-				link: Approutes.course.assessment,
+				link: Approutes.student.assessment,
 			},
 			{
 				name: 'Exams',
-				link: Approutes.course.exam,
+				link: Approutes.student.exam,
 			},
 		],
 	},
 	// {
-	// 	name: 'Events',
-	// 	link: Approutes.events,
+	// 	name: 'Trainers',
 	// 	svg: {
-	// 		default: <Events />,
-	// 		active: <EventsActive />,
+	// 		default: <Trainers />,
 	// 	},
+	// 	menu: [
+	// 		{ name: 'Instructor', link: Approutes.student.initial },
+	// 		{ name: 'Mentor', link: Approutes.student.initial },
+	// 	],
 	// },
-	{
-		name: 'Students',
-		svg: {
-			default: <Students />,
-		},
-		menu: [{ name: 'Overview', link: Approutes.student.overview }],
-	},
-	{
-		name: 'Trainers',
-		svg: {
-			default: <Trainers />,
-		},
-		menu: [
-			{ name: 'Instructor', link: Approutes.student.initial },
-			{ name: 'Mentor', link: Approutes.student.initial },
-		],
-	},
 	{
 		name: 'Settings',
 		link: Approutes.settings.initial,

@@ -17,7 +17,11 @@ const Navbar = () => {
 				<ul>
 					{navList.map((list) =>
 						list.menu ? (
-							<li className={`isDrop ${pathname.startsWith(list.link) ? 'hasActiveChild' : ''}`} key={list.name}>
+							<li
+								className={`isDrop active ${pathname.startsWith(list.link) ? 'hasActiveChild' : ''}`}
+								key={list.name}
+								onClick={(event) => event.currentTarget.classList.toggle('active')}
+							>
 								<div tabIndex={0}>
 									<span>{list.svg.default}</span> {list.name} <CaretDown className="caret" />
 								</div>

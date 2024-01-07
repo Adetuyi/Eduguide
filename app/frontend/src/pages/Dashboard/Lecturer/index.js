@@ -122,7 +122,7 @@ const LecturerDashboard = () => {
 				<section className="statistics--con">
 					<header className="statistics--header">
 						<div>
-							<h6>Classess Held</h6>
+							<h6>Classes Held</h6>
 						</div>
 					</header>
 
@@ -178,7 +178,7 @@ const LecturerDashboard = () => {
 								<div className="fraction">
 									<div>
 										<ProgressBar
-											title={`${dashboardStats?.student_attendance_rate[key]} / ${dashboardStats?.total_students}`}
+											title={`${Math.round(dashboardStats?.student_attendance_rate[key])} / ${dashboardStats?.total_students}`}
 											fraction={dashboardStats?.student_attendance_rate[key] / dashboardStats?.total_students}
 										/>
 									</div>

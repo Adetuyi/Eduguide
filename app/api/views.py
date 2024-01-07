@@ -143,7 +143,11 @@ def predict(request, pk):
     # Retrieve all attendance records for the student
     all_attendance = Attendance.objects.all()
     student_attendance = Attendance.objects.filter(students=student)
-    attendance_rate = student_attendance.count() / all_attendance.count() * 100
+
+    if (all_attendance.count() == 0 or student_attendance.count() == 0):
+        attendance_rate = 0
+    else:
+        attendance_rate = student_attendance.count() / all_attendance.count() * 100
 
     # Retrieve all assessment records for the student
     student_assessments = Assessment.objects.filter(student=student)
@@ -188,8 +192,9 @@ def getDashboardStats(request):
         classes_held[course.code] = all_attendance_for_course.count()
 
         for attendance in all_attendance_for_course:
-            total_student_in_attendance = total_student_in_attendance + \
-                attendance.students.count()
+            if (attendance.students.count() != 0):
+                total_student_in_attendance = total_student_in_attendance + \
+                    attendance.students.count()
 
         if (all_attendance_for_course.count() == 0):
             course_attendance_rate[course.code] = 0
@@ -202,7 +207,8 @@ def getDashboardStats(request):
     total_female = Student.objects.filter(gender='Female')
 
     # Get last 5 recent student
-    recent_student_serializer = StudentSerializer(all_students[:5], many=True)
+    recent_student_serializer = StudentSerializer(
+        all_students.order_by('-id')[:5], many=True)
 
     attendance_group = {
         'Q1': [],
@@ -215,8 +221,12 @@ def getDashboardStats(request):
     for student in all_students:
         all_attendance_for_student = Attendance.objects.filter(
             students=student)
-        student_attendance_rate = round(
-            all_attendance_for_student.count() / all_attendance.count() * 100)
+
+        if (all_attendance.count() != 0):
+            student_attendance_rate = round(
+                all_attendance_for_student.count() / all_attendance.count() * 100)
+        else:
+            student_attendance_rate = 0
 
         if (0 <= student_attendance_rate <= 25):
             attendance_group['Q1'].append(student.matric_number)

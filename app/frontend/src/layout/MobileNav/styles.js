@@ -29,7 +29,7 @@ export const Container = styled.div`
 			background: ${({ theme }) => theme.colors.white};
 			border-radius: 0px 40px 40px 0px;
 			padding: 2rem 0;
-			width: 13.75rem;
+			width: 15rem;
 			flex-shrink: 0;
 			display: flex;
 			flex-direction: column;

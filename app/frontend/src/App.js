@@ -5,7 +5,7 @@ import {
 	PageNotFound,
 	Login,
 	ResetPassword,
-	StudentManagement,
+	StudentOverview,
 	Settings,
 	Profile,
 	Dashboard,
@@ -13,10 +13,10 @@ import {
 	LecturerDashboard,
 	Events,
 	Logout,
-	CourseOverview,
-	CourseAttendance,
-	CourseAssessment,
-	CourseExam,
+	CourseManagement,
+	StudentAttendance,
+	StudentAssessment,
+	StudentExam,
 } from './pages';
 import { ApplyLayout } from './layout';
 import { Approutes } from './constants';
@@ -51,11 +51,11 @@ function App() {
 
 							<Route element={<OnlyLecturer />}>
 								<Route path={Approutes.dashboard.lecturer} element={<LecturerDashboard />} />
-								<Route path={Approutes.course.overview} element={<CourseOverview />} />
-								<Route path={Approutes.course.assessment} element={<CourseAssessment />} />
-								<Route path={Approutes.course.attendance} element={<CourseAttendance />} />
-								<Route path={Approutes.course.exam} element={<CourseExam />} />
-								<Route path={Approutes.student.overview} element={<StudentManagement />} />
+								<Route path={Approutes.course.overview} element={<CourseManagement />} />
+								<Route path={Approutes.student.assessment} element={<StudentAssessment />} />
+								<Route path={Approutes.student.attendance} element={<StudentAttendance />} />
+								<Route path={Approutes.student.exam} element={<StudentExam />} />
+								<Route path={Approutes.student.overview} element={<StudentOverview />} />
 							</Route>
 						</Route>
 

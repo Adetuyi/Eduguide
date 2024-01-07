@@ -4,7 +4,7 @@ export const Approutes = {
 		logout: '/logout',
 		reset_password: '/reset-password',
 	},
-	course: { overview: '/course/overview', attendance: '/course/attendance', assessment: '/course/assessment', exam: '/course/exam' },
+	course: { overview: '/course/overview' },
 	dashboard: {
 		index: '/dashboard',
 		lecturer: '/dashboard/lecturer',
@@ -15,6 +15,9 @@ export const Approutes = {
 	student: {
 		initial: '/student',
 		overview: '/student/overview',
+		attendance: '/student/attendance',
+		assessment: '/student/assessment',
+		exam: '/student/exam',
 	},
 	home: '/',
 	playground: '/playground',

@@ -5,7 +5,7 @@ export const Aside = styled.aside`
 	background: ${({ theme }) => theme.colors.white};
 	border-radius: 0px 40px 40px 0px;
 	padding: 2rem 0;
-	width: 13.75rem;
+	width: 15rem;
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
@@ -59,7 +59,7 @@ export const Aside = styled.aside`
 			&.hasActiveChild,
 			:focus,
 			:focus-within,
-			:hover {
+			&.active {
 				ul {
 					display: block;
 				}

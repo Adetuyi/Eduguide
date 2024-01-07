@@ -38,18 +38,27 @@ const PredictionModal = ({ closeModal, student }) => {
 					</div>
 					<div className="row--items">
 						<span>Attendance Rate</span>
-						<p>{predictionData?.attendance_rate}</p>
+						<p>{predictionData?.attendance_rate || 0}%</p>
 					</div>
 					<div className="row--items">
 						<span>Average Assessment Score</span>
-						<p>{predictionData?.average_assessment_score}/30</p>
+						<p>{Math.round(predictionData?.average_assessment_score) || 0}/30</p>
 					</div>
 					<div className="row--items column">
 						<span>Remarks</span>
 						<p>
-							The predicted average exam score of <b>{student?.first_name}</b> is <b>{predictedScore}</b>. Adding this with the average assessment
-							score gives <b>{predictedScore + predictionData?.average_assessment_score}</b>. This means that if this student keeps on progressing
-							at this pace, they are most likely to {remarks}
+							{isNaN(predictedScore) ? (
+								<>
+									The system does not have enoough information to make a prediction. Do try to take attendance and assessment scores before trying to
+									predict.
+								</>
+							) : (
+								<>
+									The predicted average exam score of <b>{student?.first_name}</b> is <b>{predictedScore}</b>. Adding this with the average
+									assessment score gives <b>{predictedScore + predictionData?.average_assessment_score}</b>. This means that if this student keeps on
+									progressing at this pace, they are most likely to {remarks}
+								</>
+							)}
 						</p>
 					</div>
 					<br />
